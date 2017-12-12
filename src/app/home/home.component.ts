@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-home',
@@ -12,5 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {  }
 
   languages = ['English', 'Spanish', 'Other'];
+  model = new Employee('Darla', 'Smith', true, 'w2', 'English');
+
 
 }

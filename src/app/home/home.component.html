@@ -3,35 +3,35 @@
   <form #form="ngForm" novalidate>
     <div class="form-group">
       <label for="firstNameId">First name</label>
-      <input type="text" id="firstNameId" class="form-control" required placeholder="Name" name="firstName" ngModel>
+      <input type="text" id="firstNameId" class="form-control" required placeholder="Name" name="firstName" [(ngModel)]="model.firstName">
     </div>
     <div class="form-group">
       <label for="lastNameId">Last name</label>
-      <input type="text" id="lastNameId" class="form-control" required placeholder="Name" name="lastName" ngModel>
+      <input type="text" id="lastNameId" class="form-control" required placeholder="Name" name="lastName" [(ngModel)]="model.lastName">
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="is-full-time" ngModel> Full Time Emplyee
+        <input type="checkbox" name="is-full-time" [(ngModel)]="model.isFullTime"> Full Time Emplyee
       </label>
     </div>
 
     <label>Payment Type</label>
     <div class="radio">
       <label>
-        <input type="radio" name="pay-type" value="w2" checked>
+        <input type="radio" name="paymentType" value="w2" checked [(ngModel)]="model.paymentType">
         W2
       </label>
     </div>
     <div class="radio">
-        <label>
-            <input type="radio" name="pay-type" value="1099">
-            1099
-          </label>
+      <label>
+        <input type="radio" name="paymentType" value="1099" [(ngModel)]="model.paymentType">
+        1099
+        </label>
     </div>
 
     <div class="form-group">
       <label>Primary Language</label>
-      <select class="form-control">
+      <select class="form-control" name="primaryLanguage" [(ngModel)]="model.primaryLanguage">
         <option *ngFor="let lang of languages">
           {{ lang }}
         </option>
@@ -45,4 +45,7 @@
 
     <button type="submit" class="btn btn-primary">Ok</button>    
   </form>
+
+  <p>Model: {{ model | json }}</p>
+  <p>Angular: {{ form.value | json }}</p>
 </div>
