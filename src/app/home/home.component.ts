@@ -13,7 +13,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {  }
 
   languages = ['English', 'Spanish', 'Other'];
-  model = new Employee('Darla', 'Smith', true, 'w2', 'English');
+  // model = new Employee('Darla', 'Smith', true, 'w2', 'English');
+  model = new Employee('', '', true, '', 'default');
+  hasPrimaryLanguageError = false;
 
+  validatePrimaryLanguage(value){
+    if (value === 'default'){
+      this.hasPrimaryLanguageError = true;
+    }
+    else {
+      this.hasPrimaryLanguageError = false;
+    }
+  }
 
 }
